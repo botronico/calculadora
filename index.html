@@ -10,11 +10,23 @@
     body { padding: 20px; max-width: 800px; margin: 20px auto; }
     .result { background: #f0f0f0; border-radius: 8px; padding: 20px; }
     .result p { margin: 6px 0; }
+    /* Custom styles for accordion */
+    .accordion-button {
+      background-color: #a8d5ba; /* Light green header background color */
+      color: #004d00; /* Dark green header text color */
+    }
+    .accordion-button:not(.collapsed) {
+      background-color: #86c59b; /* Slightly darker green when expanded */
+      color: white; /* Change text color to white when active */
+    }
+    .accordion-body {
+      background-color: #eaf7ed; /* Very light green body background color */
+    }
   </style>
 </head>
 
 <body>
-  <h1 class="text-center mb-5 p-4 bg-primary text-bg-primary" style="border-radius: 8px;">Calculadora de finiquito e indemnización</h1>
+  <h1 class="text-center mb-5 p-4" style="border-radius: 8px; background-color: #86c59b; color: #004d00;">Calculadora de finiquito e indemnización</h1>
 
   <div class="mb-3">
     <label for="fechaInicio" class="form-label">Fecha de inicio del contrato:</label>
@@ -64,11 +76,10 @@
       const vacacionesNoDisfrutadas = parseFloat(document.getElementById('vacacionesNoDisfrutadas').value) || 0;
       const diasIndemnizacion = parseFloat(document.getElementById('diasIndemnizacion').value) || 0;
 
-      if (isNaN(inicio) || isNaN(fin) || inicio >= fin) return;
 
       const msPorAnio = 365.25 * 24 * 60 * 60 * 1000;
       const añosTrabajados = (fin - inicio) / msPorAnio;
-      const salarioDiario = salarioMensual * 12 / 365;
+      const salarioDiario = salarioMensual * 12 / 365.25;
       const pagoVacaciones = vacacionesNoDisfrutadas * salarioDiario;
       const pagoDiasTrabajados = diasTrabajadosMes * salarioDiario;
       const indemnizacion = añosTrabajados * diasIndemnizacion * salarioDiario;
@@ -233,10 +244,10 @@
 <footer class="text-center mt-4 bg-light p-3">
   <p>Mario Basso</p>
   <p>
-    <a href="https://www.linkedin.com/in/mariobo/" target="_blank" class="btn btn-primary btn</div>-sm mx-1">Linkedin</a>
+    <a href="https://www.linkedin.com/in/mariobo/" target="_blank" class="btn btn-primary btn-sm mx-1">Linkedin</a>
     <a href="https://github.com/botronico" target="_blank" class="btn btn-dark btn-sm mx-1">Github</a>
     <a href="https://www.instagram.com/mario.bo" target="_blank" class="btn btn-danger btn-sm mx-1">Instagram</a>
   </p>
 </footer>
 </body>
-</html></h2></div>
+</html>
