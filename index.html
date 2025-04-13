@@ -47,7 +47,7 @@
     <p><strong>Pago por vacaciones no disfrutadas:</strong> <span id="pagoVacaciones"></span></p>
     <p><strong>Total Finiquito:</strong> <span id="pagoFiniquito"></span></p>
     <p><strong>Indemnización:</strong> <span id="indemnizacion"></span></p>
-    <p><strong>TOTAL A RECIBIR:</strong> <span id="total"></span></p>
+    <p><strong>Total a recibir:</strong> <span id="total"></span></p>
   </div>
 
   <!-- Add Bootstrap JS -->
@@ -83,5 +83,64 @@
       document.getElementById('total').textContent = total.toFixed(2) + ' €';
     }
   </script>
+
+<div class="alert alert-info mt-4" role="alert">
+    <strong>Nota:</strong> Esta calculadora es solo una herramienta de estimación. Para obtener un cálculo exacto, consulte a un profesional.
+  </div>
+
+  <div class="mb-3">
+    <h6>Fecha de inicio y finalización del contrato</h6>
+    <small>Estas fechas determinan el período total trabajado. A partir de ellas se calcula automáticamente cuántos años ha trabajado la persona en la empresa.</small>
+  </div>
+  
+  <div class="mb-3">
+    <h6>Salario bruto mensual</h6>
+    <small>Es el salario mensual sin descuentos. Se utiliza como base para calcular el salario diario y, a partir de ahí, todos los demás pagos.</small>
+  </div>
+  
+  <div class="mb-3">
+    <h6>Años trabajados (automático)</h6>
+    <small>Se calcula la cantidad de años completos y fracciones que la persona ha estado contratada. Este dato es fundamental para calcular la indemnización.</small>
+  </div>
+  
+  <div class="mb-3">
+    <h6>Días trabajados en el último mes</h6>
+    <small>Corresponde a los días efectivamente trabajados antes de finalizar el contrato, si no se trabajó el mes completo. Se paga proporcionalmente según el salario diario.</small>
+  </div>
+  
+  <div class="mb-3">
+    <h6>Días de vacaciones no disfrutadas</h6>
+    <small>Si el trabajador tiene vacaciones acumuladas que no ha tomado, se le deben pagar como parte del finiquito.</small>
+  </div>
+  
+  <div class="mb-3">
+    <h6>Días de indemnización por año trabajado</h6>
+    <small>Es el número de días de salario que se pagan por cada año trabajado. Esta cantidad depende del tipo de despido y de la legislación laboral aplicable o el contrato.</small>
+  </div>
+  
+  <div class="mb-3">
+    <h6>Valor diario de salario</h6>
+    <small>Es el resultado de dividir el salario mensual en una base diaria. Sirve como unidad para calcular vacaciones, días trabajados y la indemnización.</small>
+  </div>
+  
+  <div class="mb-3">
+    <h6>Pago por vacaciones no disfrutadas</h6>
+    <small>Es la cantidad que se paga por los días de vacaciones que no se han disfrutado antes de la finalización del contrato.</small>
+  </div>
+  
+  <div class="mb-3">
+    <h6>Total Finiquito</h6>
+    <small>Es la suma del pago por vacaciones no disfrutadas y el pago por los días trabajados en el último mes. Representa los conceptos pendientes a favor del trabajador.</small>
+  </div>
+  
+  <div class="mb-3">
+    <h6>Indemnización</h6>
+    <small>Es la compensación económica por la finalización del contrato. Se calcula tomando en cuenta los años trabajados y los días de indemnización por año.</small>
+  </div>
+  
+  <div class="mb-3">
+    <h6>Total a recibir</h6>
+    <small>Es la suma de todo lo que le corresponde al trabajador al salir: finiquito más indemnización. Es el monto final que la empresa debe pagarle.</small>
+  </div>
 </body>
 </html>
