@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Finiquito e Indemnización</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: auto; }
+    label { display: block; margin-top: 15px; }
+    input { width: 100%; padding: 8px; margin-top: 5px; }
+    .result { margin-top: 20px; padding: 10px; background: #f0f0f0; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Calculadora de Finiquito e Indemnización</h1>
+
+  <label>Fecha de inicio del contrato:
+    <input type="date" id="fechaInicio">
+  </label>
+  <label>Fecha de finalización del contrato:
+    <input type="date" id="fechaFin">
+  </label>
+  <label>Salario bruto mensual:
+    <input type="number" id="salarioMensual" value="2953.6">
+  </label>
+  <label>Días trabajados en el último mes:
+    <input type="number" id="diasTrabajadosMes" value="30">
+  </label>
+  <label>Días de vacaciones no disfrutadas:
+    <input type="number" id="vacacionesNoDisfrutadas" value="30">
+  </label>
+  <label>Días de indemnización por año trabajado:
+    <input type="number" id="diasIndemnizacion" value="24">
+  </label>
+
+  <div class="result">
+    <p><strong>Años trabajados:</strong> <span id="anios"></span></p>
+    <p><strong>Salario diario:</strong> <span id="salarioDiario"></span></p>
+    <p><strong>Pago vacaciones:</strong> <span id="pagoVacaciones"></span></p>
+    <p><strong>Pago por días trabajados:</strong> <span id="pagoDias"></span></p>
+    <p><strong>Indemnización:</strong> <span id="indemnizacion"></span></p>
+    <p><strong>Total a pagar:</strong> <span id="total"></span></p>
+  </div>
+
+  <script>
+    const inputs = document.querySelectorAll('input');
+    inputs.forEach(input => input.addEventListener('input', calcular));
+
+    function calcular() {
+      const inicio = new Date(document.getElementById('fechaInicio').value);
+      const fin = new Date(document.getElementById('fechaFin').value);
+      const salarioMensual = parseFloat(document.getElementById('salarioMensual').value) || 0;
+      const diasTrabajadosMes = parseFloat(document.getElementById('diasTrabajadosMes').value) || 0;
+      const vacacionesNoDisfrutadas = parseFloat(document.getElementById('vacacionesNoDisfrutadas').value) || 0;
+      const diasIndemnizacion = parseFloat(document.getElementById('diasIndemnizacion').value) || 0;
+
+      if (isNaN(inicio) || isNaN(fin) || inicio >= fin) return;
+
+      const msPorAnio = 365.25 * 24 * 60 * 60 * 1000;
+      const añosTrabajados = (fin - inicio) / msPorAnio;
+      const salarioDiario = salarioMensual * 12 / 365;
+      const pagoVacaciones = vacacionesNoDisfrutadas * salarioDiario;
+      const pagoDiasTrabajados = diasTrabajadosMes * salarioDiario;
+      const indemnizacion = añosTrabajados * diasIndemnizacion * salarioDiario;
+      const total = pagoVacaciones + pagoDiasTrabajados + indemnizacion;
+
+      document.getElementById('anios').textContent = añosTrabajados.toFixed(2);
+      document.getElementById('salarioDiario').textContent = salarioDiario.toFixed(2) + ' €';
+      document.getElementById('pagoVacaciones').textContent = pagoVacaciones.toFixed(2) + ' €';
+      document.getElementById('pagoDias').textContent = pagoDiasTrabajados.toFixed(2) + ' €';
+      document.getElementById('indemnizacion').textContent = indemnizacion.toFixed(2) + ' €';
+      document.getElementById('total').textContent = total.toFixed(2) + ' €';
+    }
+  </script>
+</body>
+</html>
