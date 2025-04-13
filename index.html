@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <h1 class="text-center mb-4">Calculadora de finiquito e indemnización</h1>
+  <h1 class="text-center mb-5 p-4 bg-primary text-bg-primary" style="border-radius: 8px;">Calculadora de finiquito e indemnización</h1>
 
   <div class="mb-3">
     <label for="fechaInicio" class="form-label">Fecha de inicio del contrato:</label>
@@ -40,7 +40,7 @@
     <label for="diasIndemnizacion" class="form-label">Días de indemnización por año trabajado:</label>
     <input type="number" id="diasIndemnizacion" class="form-control" value="24">
   </div>
-
+<br>
   <div class="result">
     <p><strong>Años trabajados:</strong> <span id="anios"></span></p>
     <p><strong>Valor diario de salario:</strong> <span id="salarioDiario"></span></p>
@@ -84,72 +84,159 @@
     }
   </script>
 
-<div class="alert alert-info mt-4" role="alert">
-    <strong>Nota:</strong> Esta calculadora es solo una herramienta de estimación. Para obtener un cálculo exacto, consulte a un profesional.
+<div class="accordion mt-4" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingNota">
+      <button class="accordion-button bg-secondary text-bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNota" aria-expanded="true" aria-controls="collapseNota">
+        <strong>Nota</strong>
+      </button>
+    </h2>
+    <div id="collapseNota" class="accordion-collapse collapse show" aria-labelledby="headingNota" data-bs-parent="#accordionExample">
+      <div class="accordion-body bg-light">
+        Esta calculadora es solo una herramienta de estimación. Para obtener un cálculo exacto, consulte a un profesional.
+      </div>
+    </div>
   </div>
 
-  <div class="mb-3">
-    <h6>Fecha de inicio y finalización del contrato</h6>
-    <small>Estas fechas determinan el período total trabajado. A partir de ellas se calcula automáticamente cuántos años ha trabajado la persona en la empresa.</small>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFechas">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFechas" aria-expanded="false" aria-controls="collapseFechas">
+        Fecha de inicio y finalización del contrato
+      </button>
+    </h2>
+    <div id="collapseFechas" class="accordion-collapse collapse" aria-labelledby="headingFechas" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Estas fechas determinan el período total trabajado. A partir de ellas se calcula automáticamente cuántos años ha trabajado la persona en la empresa.
+      </div>
+    </div>
   </div>
-  
-  <div class="mb-3">
-    <h6>Salario bruto mensual</h6>
-    <small>Es el salario mensual sin descuentos. Se utiliza como base para calcular el salario diario y, a partir de ahí, todos los demás pagos.</small>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingSalario">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSalario" aria-expanded="false" aria-controls="collapseSalario">
+        Salario bruto mensual
+      </button>
+    </h2>
+    <div id="collapseSalario" class="accordion-collapse collapse" aria-labelledby="headingSalario" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Es el salario mensual sin descuentos. Se utiliza como base para calcular el salario diario y, a partir de ahí, todos los demás pagos.
+      </div>
+    </div>
   </div>
-  
-  <div class="mb-3">
-    <h6>Años trabajados (automático)</h6>
-    <small>Se calcula la cantidad de años completos y fracciones que la persona ha estado contratada. Este dato es fundamental para calcular la indemnización.</small>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingAnios">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAnios" aria-expanded="false" aria-controls="collapseAnios">
+        Años trabajados
+      </button>
+    </h2>
+    <div id="collapseAnios" class="accordion-collapse collapse" aria-labelledby="headingAnios" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Se calcula automaticamente la cantidad de años completos y fracciones que la persona ha estado contratada. Este dato es fundamental para calcular la indemnización.
+      </div>
+    </div>
   </div>
-  
-  <div class="mb-3">
-    <h6>Días trabajados en el último mes</h6>
-    <small>Corresponde a los días efectivamente trabajados antes de finalizar el contrato, si no se trabajó el mes completo. Se paga proporcionalmente según el salario diario.</small>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingDiasTrabajados">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDiasTrabajados" aria-expanded="false" aria-controls="collapseDiasTrabajados">
+        Días trabajados en el último mes
+      </button>
+    </h2>
+    <div id="collapseDiasTrabajados" class="accordion-collapse collapse" aria-labelledby="headingDiasTrabajados" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Corresponde a los días efectivamente trabajados antes de finalizar el contrato, si no se trabajó el mes completo. Se paga proporcionalmente según el salario diario.
+      </div>
+    </div>
   </div>
-  
-  <div class="mb-3">
-    <h6>Días de vacaciones no disfrutadas</h6>
-    <small>Si el trabajador tiene vacaciones acumuladas que no ha tomado, se le deben pagar como parte del finiquito.</small>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingVacaciones">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseVacaciones" aria-expanded="false" aria-controls="collapseVacaciones">
+        Días de vacaciones no disfrutadas
+      </button>
+    </h2>
+    <div id="collapseVacaciones" class="accordion-collapse collapse" aria-labelledby="headingVacaciones" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Si el trabajador tiene vacaciones acumuladas que no ha tomado, se le deben pagar como parte del finiquito.
+      </div>
+    </div>
   </div>
-  
-  <div class="mb-3">
-    <h6>Días de indemnización por año trabajado</h6>
-    <small>Es el número de días de salario que se pagan por cada año trabajado. Esta cantidad depende del tipo de despido y de la legislación laboral aplicable o el contrato.</small>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingIndemnizacion">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIndemnizacion" aria-expanded="false" aria-controls="collapseIndemnizacion">
+        Días de indemnización por año trabajado
+      </button>
+    </h2>
+    <div id="collapseIndemnizacion" class="accordion-collapse collapse" aria-labelledby="headingIndemnizacion" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Es el número de días de salario que se pagan por cada año trabajado. Esta cantidad depende del tipo de despido y de la legislación laboral aplicable o el contrato.
+      </div>
+    </div>
   </div>
-  
-  <div class="mb-3">
-    <h6>Valor diario de salario</h6>
-    <small>Es el resultado de dividir el salario mensual en una base diaria. Sirve como unidad para calcular vacaciones, días trabajados y la indemnización.</small>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingSalarioDiario">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSalarioDiario" aria-expanded="false" aria-controls="collapseSalarioDiario">
+        Valor diario de salario
+      </button>
+    </h2>
+    <div id="collapseSalarioDiario" class="accordion-collapse collapse" aria-labelledby="headingSalarioDiario" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Es el resultado de dividir el salario mensual en una base diaria. Sirve como unidad para calcular vacaciones, días trabajados y la indemnización.
+      </div>
+    </div>
   </div>
-  
-  <div class="mb-3">
-    <h6>Pago por vacaciones no disfrutadas</h6>
-    <small>Es la cantidad que se paga por los días de vacaciones que no se han disfrutado antes de la finalización del contrato.</small>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingPagoVacaciones">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePagoVacaciones" aria-expanded="false" aria-controls="collapsePagoVacaciones">
+        Pago por vacaciones no disfrutadas
+      </button>
+    </h2>
+    <div id="collapsePagoVacaciones" class="accordion-collapse collapse" aria-labelledby="headingPagoVacaciones" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Es la cantidad que se paga por los días de vacaciones que no se han disfrutado antes de la finalización del contrato.
+      </div>
+    </div>
   </div>
-  
-  <div class="mb-3">
-    <h6>Total Finiquito</h6>
-    <small>Es la suma del pago por vacaciones no disfrutadas y el pago por los días trabajados en el último mes. Representa los conceptos pendientes a favor del trabajador.</small>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFiniquito">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFiniquito" aria-expanded="false" aria-controls="collapseFiniquito">
+        Total Finiquito
+      </button>
+    </h2>
+    <div id="collapseFiniquito" class="accordion-collapse collapse" aria-labelledby="headingFiniquito" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Es la suma del pago por vacaciones no disfrutadas y el pago por los días trabajados en el último mes. Representa los conceptos pendientes a favor del trabajador.
+      </div>
+    </div>
   </div>
-  
-  <div class="mb-3">
-    <h6>Indemnización</h6>
-    <small>Es la compensación económica por la finalización del contrato. Se calcula tomando en cuenta los años trabajados y los días de indemnización por año.</small>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTotal">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTotal" aria-expanded="false" aria-controls="collapseTotal">
+        Total a recibir
+      </button>
+    </h2>
+    <div id="collapseTotal" class="accordion-collapse collapse" aria-labelledby="headingTotal" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        Es la suma de todo lo que le corresponde al trabajador al salir: finiquito más indemnización. Es el monto final que la empresa debe pagarle.
+      </div>
+    </div>
   </div>
-  
-  <div class="mb-3">
-    <h6>Total a recibir</h6>
-    <small>Es la suma de todo lo que le corresponde al trabajador al salir: finiquito más indemnización. Es el monto final que la empresa debe pagarle.</small>
-  </div>
+</div></div></h2></div></h2></div>
+
 
 <footer class="text-center mt-4 bg-light p-3">
   <p>Mario Basso</p>
   <p>
-    <a href="https://www.linkedin.com/in/mariobo/" target="_blank" class="btn btn-primary btn-sm mx-1">Linkedin</a>
+    <a href="https://www.linkedin.com/in/mariobo/" target="_blank" class="btn btn-primary btn</div>-sm mx-1">Linkedin</a>
     <a href="https://github.com/botronico" target="_blank" class="btn btn-dark btn-sm mx-1">Github</a>
     <a href="https://www.instagram.com/mario.bo" target="_blank" class="btn btn-danger btn-sm mx-1">Instagram</a>
   </p>
 </footer>
 </body>
-</html>
+</html></h2></div>
